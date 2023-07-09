@@ -7,9 +7,44 @@
     <title>Title</title>
 </head>
 <body>
-    <h1 id="app">
-        {{ message }}
-    </h1>
+    <div id="app">
+        <h1>Список задач</h1>
+        <div>Осталось сделать задач: <span class="counter">2</span></div>
+        <div class="list">
+            <div class="item" v-bind:class="{done : isDone}" v-for="item in todos">
+                <input type="checkbox" v-bind:checked="isChecked">
+                {{ item }}
+            </div>
+        </div>
+        <div class="form">
+            <input v-bind:placeholder="message">
+            <button v-bind:type="buttonType" v-bind:disabled="isDisabled">Добавить</button>
+        </div>
+    </div>
+
+    <div id="app-2">
+      <span v-bind:title="message">
+        Наведи на меня курсор на пару секунд,
+        чтобы увидеть динамически связанное значение title!
+      </span>
+    </div>
+
+    <div id="app-3">
+        <span v-if="seen">Сейчас меня видно</span>
+    </div>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Перевернуть сообщение</button>
+    </div>
 
     <script src="index.js"></script>
 </body>
