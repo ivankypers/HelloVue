@@ -52,3 +52,19 @@ let app5 = new Vue({
     }
 });
 
+
+Vue.component('todo-item' , {
+    props: ['todo'],
+    template: '<li> {{ todo.text }} </li>'
+})
+
+let app6 = new Vue({
+    el: '#app6',
+    data: {
+        nvmList: [
+            {id: 0, text: 'Thing1'},
+            {id: 1, text: 'Thing2'},
+            {id: 2, text: 'Thing3'}
+        ]
+    }
+})
